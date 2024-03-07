@@ -1,0 +1,18 @@
+server:
+  port: ${CONFIG_PORT:8888}
+spring:
+  application:
+    name: config_server
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_REPO_URI:https://github.com/flex18/configurations-bootcamp.git}
+          ignoreLocalSshSettings: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:${EUREKA_PORT:8761}/eureka}
+    register-with-eureka: true
+  instance:
+    preferIpAddress: true
